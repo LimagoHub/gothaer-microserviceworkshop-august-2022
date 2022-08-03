@@ -6,7 +6,7 @@ import de.gothaer.smartbank24kreditantragstore.domain.aggregate.Statuswechsel;
 public interface KreditantragService {
 
 
-    void speichereOderAendereKreditantrag(Kreditantrag antrag) throws KreditantragServiceException;
+    void speichereKreditantrag(Kreditantrag antrag) throws KreditantragServiceException;
     void verarbeitePositivesScoring(String id) throws KreditantragServiceException;
     void verarbeitePositivesCityScoring(String id) throws KreditantragServiceException;
     void verarbeiteNegativesScoring(String id) throws KreditantragServiceException;

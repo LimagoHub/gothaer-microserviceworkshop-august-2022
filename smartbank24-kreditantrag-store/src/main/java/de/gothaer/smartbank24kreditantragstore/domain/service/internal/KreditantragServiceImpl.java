@@ -19,10 +19,18 @@ public class KreditantragServiceImpl implements KreditantragService {
     private final LocalEventPublisher publisher;
 
     @Override
-    public void speichereOderAendereKreditantrag(Kreditantrag antrag) throws KreditantragServiceException {
+    public void speichereKreditantrag(Kreditantrag antrag) throws KreditantragServiceException {
+        try {
+            this.speichereOderAendereKreditantrag(antrag);
+            publisher.sende(KreditantragPersistiertLocalEvent.builder().kreditantrag(antrag).build());
+        } catch (RuntimeException e) {
+            throw new KreditantragServiceException(e);
+        }
+    }
+
+    private void speichereOderAendereKreditantrag(Kreditantrag antrag) throws KreditantragServiceException {
         try {
             repo.anlegen(antrag);
-            publisher.sende(KreditantragPersistiertLocalEvent.builder().kreditantrag(antrag).build());
         } catch (RuntimeException e) {
             throw new KreditantragServiceException(e);
         }

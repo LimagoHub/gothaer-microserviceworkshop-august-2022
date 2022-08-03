@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 @SpringBootApplication
-@EnableAsync
+
 public class Smartbank24KreditantragStoreApplication {
 
     public static void main(String[] args) {

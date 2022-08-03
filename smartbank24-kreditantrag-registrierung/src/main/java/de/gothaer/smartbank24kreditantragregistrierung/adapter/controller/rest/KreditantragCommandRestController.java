@@ -1,7 +1,9 @@
 package de.gothaer.smartbank24kreditantragregistrierung.adapter.controller.rest;
 
 import de.gothaer.smartbank24kreditantragregistrierung.adapter.dto.KreditantragDTO;
-import de.gothaer.smartbank24kreditantragregistrierung.adapter.handlers.KreditantragHandler;
+
+import de.gothaer.smartbank24kreditantragregistrierung.adapter.mapper.KreditantragDTOMapper;
+import de.gothaer.smartbank24kreditantragregistrierung.application.commandhandler.KreditantragHandler;
 import de.gothaer.smartbank24kreditantragregistrierung.domain.services.KreditantragServiceException;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
@@ -17,6 +19,7 @@ import javax.validation.Valid;
 public class KreditantragCommandRestController {
 
     private final KreditantragHandler kreditantragHandler;
+    private final KreditantragDTOMapper mapper;
 
     @ApiResponse(responseCode = "204", description = "Kreditantrag wurde registriert")
     @ApiResponse(responseCode = "400", description = "Bad Request (moeglicherweise bereits erfasst)" )
@@ -26,7 +29,7 @@ public class KreditantragCommandRestController {
     public ResponseEntity<Void> register(@Valid @RequestBody KreditantragDTO kreditantragDTO) throws KreditantragServiceException {
 
 
-        kreditantragHandler.handle(kreditantragDTO);
+        kreditantragHandler.handle(mapper.convert(kreditantragDTO));
         return ResponseEntity.noContent().build();
     }
 }

@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/smartbank24-kreditvertrag-store/pom.xml" />
         <option value="$PROJECT_DIR$/smartbank24-kreditantrag-scoring/pom.xml" />
         <option value="$PROJECT_DIR$/smartbank24-kreditantrag-registrierung/pom.xml" />
+        <option value="$PROJECT_DIR$/dead-letter-queue-example/pom.xml" />
       </list>
     </option>
   </component>

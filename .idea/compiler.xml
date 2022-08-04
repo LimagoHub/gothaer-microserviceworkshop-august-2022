@@ -21,11 +21,13 @@
         <module name="smartbank24-kreditantrag-registrierung" />
         <module name="smartbank24-kreditvertrag-store" />
         <module name="smartbank24-kreditantrag-store" />
+        <module name="dead-letter-queue-example" />
         <module name="smartbank24-kreditantrag-scoring" />
         <module name="smartbank24-kreditantrag-city-scoring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dead-letter-queue-example" target="11" />
       <module name="smartbank24-kreditantrag-city-scoring" target="11" />
       <module name="smartbank24-kreditantrag-registrierung" target="11" />
       <module name="smartbank24-kreditantrag-scoring" target="11" />
@@ -35,6 +37,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="dead-letter-queue-example" options="-parameters" />
       <module name="smartbank24-kreditantrag-city-scoring" options="-parameters" />
       <module name="smartbank24-kreditantrag-registrierung" options="-parameters" />
       <module name="smartbank24-kreditantrag-scoring" options="-parameters" />
